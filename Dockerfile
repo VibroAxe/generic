@@ -21,7 +21,8 @@ RUN    chmod 755 /scripts/*                ;\
     chown -R ${WEBUSER}:${WEBUSER} /data/  ;\
     mkdir -p /etc/nginx/sites-enabled      ;\
     apk add jq git                         ;\
-    mkdir -p /etc/nginx/sites-enabled
+    mkdir -p /etc/nginx/sites-enabled      ;\
+	ln -s /etc/nginx/sites-available/generic.conf /etc/nginx/sites-enabled/generic.conf
 
 VOLUME ["/data/logs", "/data/cache", "/data/cachedomains", "/var/www"]
 
