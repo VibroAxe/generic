@@ -14,7 +14,7 @@ env
 if [ "$CACHE_MONOLITHIC" = "true" ]; then
 	echo "Generating up-to-date cache mappings"
 	/bin/sh /scripts/generate-maps.sh
-	sed -ri 's/proxy_cache_key(\s+)\$uri/proxy_cache_key\1$cacheidentifier\/$uri/'  /etc/nginx/sites-available/generic.conf
+	sed -ri 's/proxy_cache_key(\s+)\$uri/proxy_cache_key\1$cacheidentifier$uri/'  /etc/nginx/sites-available/generic.conf
 fi
 
 echo "Done. Starting caching server."
